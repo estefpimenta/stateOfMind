@@ -5,6 +5,7 @@ function App() {
   
   // Hooks
   const [ frase, setFrase ] = useState("")
+  const [ autor, setAutor ] = useState("")
   const [ loading, setLoading ] = useState(false)
   const [copiado, setCopiado] = useState(false)
 
@@ -17,9 +18,11 @@ function App() {
       const response = await fetch("https://api.quotable.io/random")
       const data = await response.json()
       setFrase(data.content)
+      setAutor(data.author)
     } catch (error) {
       console.error("Erro ao buscar frase:", error)
       setFrase("Ops! Não foi possível carregar a frase. Tente novamente.")
+      setAutor("")
     }
     finally {
       setLoading(false)
@@ -34,7 +37,7 @@ function App() {
 
   // Função para copiar a frase para a área de transferência
   function copiarFrase() {
-  navigator.clipboard.writeText(frase)
+  navigator.clipboard.writeText(`${frase} - ${autor}`)
   setCopiado(true)
   
   setTimeout(() => {
@@ -49,6 +52,7 @@ function App() {
       <h1>State of Mind</h1>
 
       {loading ? (<p>Carregando...</p>) : (<p>{frase}</p>)}
+      <p><em>{autor || "Autor desconhecido"}</em></p>
 
       <button onClick={gerarFrase}>New sentence</button>
       <button onClick={copiarFrase}>
