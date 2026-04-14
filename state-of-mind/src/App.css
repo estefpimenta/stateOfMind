@@ -23,7 +23,7 @@ body {
   max-width: 700px;
   padding: 40px;
   text-align: center;
-
+  width: 90%;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -118,3 +118,63 @@ button:hover {
   transform: translateY(-2px);
   background: #745c96;
 }
+
+
+
+
+/* Media Queries */
+
+
+/* Mobile */
+@media (max-width: 480px) {
+  
+  .card {
+    padding: 25px;
+  }
+
+  .frase {
+    font-size: 1.4rem;
+  }
+
+  .logo-bottom {
+    font-size: 2.2rem;
+  }
+
+  .logo-top {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .footer {
+    align-items: center;
+  }
+
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+  .card {
+    padding: 30px;
+  }
+
+  .frase {
+    font-size: 1.7rem;
+  }
+
+  .logo-bottom {
+    font-size: 2.8rem;
+  }
+
+}
+
