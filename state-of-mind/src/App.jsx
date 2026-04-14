@@ -17,12 +17,13 @@ function App() {
     try {
       setFade(false)
       setLoading(true)
-      const response = await fetch("https://api.quotable.io/random")
+      const response = await fetch("https://type.fit/api/quotes")
       const data = await response.json()
+      const random = data[Math.floor(Math.random() * data.length)]
 
       setTimeout(() => {
-        setFrase(data.content)
-        setAutor(data.author)
+        setFrase(random.content)
+        setAutor(random.author)
         setFade(true)
         setLoading(false)
       }, 300)
