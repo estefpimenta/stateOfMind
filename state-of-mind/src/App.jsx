@@ -51,10 +51,13 @@ function App() {
     <div className="container">
       <div className="card">
 
-        {/* <h1>State of Mind</h1> - editar depois */}
+        <h1 className="logo">
+          <span className="logo-top">STATE OF</span>
+          <span className="logo-bottom">MIND</span>
+        </h1>
 
         <p className="frase">
-          {loading ? (<p>Carregando...</p>) : (<p>{frase}</p>)}
+          {loading ? "Carregando..." : frase}
         </p>
 
         <div className="divider" />
