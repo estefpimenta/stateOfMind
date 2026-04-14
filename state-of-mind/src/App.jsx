@@ -17,21 +17,28 @@ function App() {
     try {
       setFade(false)
       setLoading(true)
-      const response = await fetch("https://type.fit/api/quotes")
+      const response = await fetch("https://api.quotable.io/random")
       const data = await response.json()
-      const random = data[Math.floor(Math.random() * data.length)]
 
       setTimeout(() => {
-        setFrase(random.text)
-        setAutor(random.author)
+        setFrase(data.content)
+        setAutor(data.author)
         setFade(true)
         setLoading(false)
       }, 300)
       
     } catch (error) {
       console.error("Erro ao buscar frase:", error)
-      setFrase("Ops! Não foi possível carregar a frase. Tente novamente.")
-      setAutor("")
+
+      // fallback
+      const frasesMock = [
+        "Continue avançando.",
+        "Consistência é a chave.",
+        "Pequenos passos importam.",
+      ]
+      const random = frasesMock[Math.floor(Math.random() * frasesMock.length)]
+      setFrase(random)
+      setAutor("Sistema de backup")
       setLoading(false)
       setFade(true)
     }
