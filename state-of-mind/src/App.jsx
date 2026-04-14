@@ -22,7 +22,7 @@ function App() {
       const random = data[Math.floor(Math.random() * data.length)]
 
       setTimeout(() => {
-        setFrase(random.content)
+        setFrase(random.text)
         setAutor(random.author)
         setFade(true)
         setLoading(false)
@@ -36,12 +36,6 @@ function App() {
       setFade(true)
     }
    
-
-    setTimeout(() => {
-      const random = frasesMock[Math.floor(Math.random() * frasesMock.length)]
-      setFrase(random)
-      setLoading(false)
-    }, 500)
   }
 
   // Função para copiar a frase para a área de transferência
