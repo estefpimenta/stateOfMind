@@ -8,25 +8,31 @@ function App() {
   const [ autor, setAutor ] = useState("")
   const [ loading, setLoading ] = useState(false)
   const [copiado, setCopiado] = useState(false)
+  const [ fade, setFade ] = useState(true)
 
 
   // Função para gerar uma nova frase com FECTH
   async function gerarFrase() {
 
     try {
+      setFade(false)
       setLoading(true)
       const response = await fetch("https://api.quotable.io/random")
       const data = await response.json()
-      setFrase(data.content)
-      setAutor(data.author)
+
+      setTimeout(() => {
+        setFrase(data.content)
+        setAutor(data.author)
+        setFade(true)
+        setLoading(false)
+      }, 300)
+      
     } catch (error) {
       console.error("Erro ao buscar frase:", error)
       setFrase("Ops! Não foi possível carregar a frase. Tente novamente.")
       setAutor("")
     }
-    finally {
-      setLoading(false)
-    }
+   
 
     setTimeout(() => {
       const random = frasesMock[Math.floor(Math.random() * frasesMock.length)]
@@ -56,8 +62,8 @@ function App() {
           <span className="logo-bottom">MIND</span>
         </h1>
 
-        <p className="frase">
-          {loading ? "Carregando..." : frase}
+        <p className={`frase ${fade ? "fade-in" : "fade-out"}`}>
+          {frase}
         </p>
 
         <div className="divider" />

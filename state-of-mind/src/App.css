@@ -64,9 +64,24 @@ body {
 /* Frase */
 .frase {
   font-family: 'Playfair Display', serif;
+  max-width: 600px;
+  margin: 0 auto;
   font-size: 2rem;
   line-height: 1.5;
   color: #1f2937;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* entrando */
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* saindo */
+.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 /* Divider */
