@@ -31,6 +31,8 @@ function App() {
       console.error("Erro ao buscar frase:", error)
       setFrase("Ops! Não foi possível carregar a frase. Tente novamente.")
       setAutor("")
+      setLoading(false)
+      setFade(true)
     }
    
 
