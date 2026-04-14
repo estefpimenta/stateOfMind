@@ -48,16 +48,33 @@ function App() {
   useEffect(() => {gerarFrase()}, [])
 
   return (
-    <div>
-      <h1>State of Mind</h1>
+    <div className="container">
+      <div className="card">
 
-      {loading ? (<p>Carregando...</p>) : (<p>{frase}</p>)}
-      <p><em>{autor || "Autor desconhecido"}</em></p>
+        {/* <h1>State of Mind</h1> - editar depois */}
 
-      <button onClick={gerarFrase}>New sentence</button>
-      <button onClick={copiarFrase}>
-        {copiado ? "Copied ✅" : "Copy sentence"}
-      </button>
+        <p className="frase">
+          {loading ? (<p>Carregando...</p>) : (<p>{frase}</p>)}
+        </p>
+
+        <div className="divider" />
+
+        <div className="footer">
+          <p className='autor'>
+            <em>{autor || "Autor desconhecido"}</em>
+          </p>
+        </div>
+        
+
+        <div className="buttons">
+          <button onClick={gerarFrase}>New sentence</button>
+          <button onClick={copiarFrase}>
+            {copiado ? "Copied ✅" : "Copy sentence"}
+          </button>
+        </div>
+
+      </div>
+      
     </div>
   )
 }

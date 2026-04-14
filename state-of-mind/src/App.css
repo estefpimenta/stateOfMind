@@ -1,0 +1,89 @@
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fundo gradiente suave */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #f8d7e3,
+    #dbeafe
+  );
+}
+
+/* Card */
+.card {
+  max-width: 700px;
+  padding: 40px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Frase */
+.frase {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: #999;
+  margin: 30px auto;
+  opacity: 0.5;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Autor */
+.autor {
+  font-size: 0.9rem;
+  color: #444;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+/* Buttons div */
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Botões */
+button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(5px);
+
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.9);
+}
